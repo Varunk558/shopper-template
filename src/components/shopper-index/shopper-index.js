@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ShopperHome } from "../shopper-home/shopper-home";
 import { ShopperJewelery } from "../shopper-jewlery/shopper-jewelery";
 import { ShopperCategory } from "../shopper-category/shopper-category";
+import { ShopperDetails } from "../shopper-details/shopper-details";
 
 
 export function ShopperIndex() {
@@ -14,10 +15,10 @@ export function ShopperIndex() {
                     </div>
                     <nav className="d-flex gap-4">
                         <div className="me-3"><Link to="/home" className="btn">Home</Link></div>
-                        <div className="me-3"><Link to="/mens-fashion" className="btn">Men's Fashion</Link></div>
-                        <div className="me-3"><Link to="/womens-fashion" className="btn">Women's Fashion</Link></div>
-                        <div className="me-3"><Link to="/jewelery" className="btn">Jewelery</Link></div>
-                        <div className="me-3"><Link to="/electronics" className="btn">Electronics</Link></div>
+                        <div className="me-3"><Link to="category/men's clothing" className="btn">Men's Fashion</Link></div>
+                        <div className="me-3"><Link to="category/women's clothing" className="btn">Women's Fashion</Link></div>
+                        <div className="me-3"><Link to="category/jewelery" className="btn">Jewelery</Link></div>
+                        <div className="me-3"><Link to="category/electronics" className="btn">Electronics</Link></div>
                     </nav>
                     <div>
                         <span className="bi bi-search me-3"></span>
@@ -27,14 +28,15 @@ export function ShopperIndex() {
                     </div>
                 </header>
                 <div className="mt-2 bg-dark text-white p-2 text-center">
-                    ⚡HAPPY HOLIDAY DEALS ON EVERYTHING! UP TO 50% OFF + FREE SHIPPING. SHOP NOW⚡
+                    ⚡HAPPY HOLIDAY DEALS ON EVERYTHING! UP TO 50% OFF⚡
                 </div>
                 <div className="d-flex gap-4 flex-wrap justify-content-center mt-4">
                     <Routes>
                         <Route path="/" element ={<ShopperHome/>}/>
-                        <Route path="/home" element ={<ShopperHome/>}/>
-                        <Route path="/jewelery" element = {<ShopperJewelery/>}/>
-                        <Route path="/category" element = {<ShopperCategory/>}/>
+                        <Route path="home" element ={<ShopperHome/>}/>
+                        <Route path="jewelery" element = {<ShopperJewelery/>}/>
+                        <Route path="category/:categoryName" element = {<ShopperCategory/>}/>
+                        <Route path="details/:id" element = {<ShopperDetails/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
