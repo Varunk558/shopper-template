@@ -6,11 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import { ShopperIndex } from './components/shopper-index/shopper-index';
+import { CookiesProvider } from 'react-cookie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ShopperIndex />
+    <CookiesProvider>
+      <ShopperIndex />
+    </CookiesProvider>
   </React.StrictMode>
 );
 
