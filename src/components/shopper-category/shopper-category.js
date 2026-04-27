@@ -1,12 +1,20 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 export function ShopperCategory() {
     const params = useParams();
     const [products, setProducts] = useState([]);
+    const [cookies, setCookie, removeCookie] = useCookies();
+    const navigate = useNavigate();
 
     useEffect(() => {
+        if (cookies['userId'] === undefined) {
+            navigate('/login');
+        } else {
+            console.log("User is logged in:", cookies.userId);
+        }
         axios({
             method: 'get',
             url: `https://fakestoreapi.com/products/category/${params.categoryName}`
