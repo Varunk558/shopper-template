@@ -3,6 +3,9 @@ import { ShopperHome } from "../shopper-home/shopper-home";
 import { ShopperJewelery } from "../shopper-jewlery/shopper-jewelery";
 import { ShopperCategory } from "../shopper-category/shopper-category";
 import { ShopperDetails } from "../shopper-details/shopper-details";
+import { ShopperRegister } from "../shopper-register/shopper-register";
+import { ShopperLogin } from "../shopper-login/shopper-login";
+import { ShopperInvalid } from "../shopper-invalid/shopper-invalid";
 
 
 export function ShopperIndex() {
@@ -15,6 +18,7 @@ export function ShopperIndex() {
                     </div>
                     <nav className="d-flex gap-4">
                         <div className="me-3"><Link to="/home" className="btn">Home</Link></div>
+                        <div className="me-3"><Link to="/register" className="btn">Register</Link></div>
                         <div className="me-3"><Link to="category/men's clothing" className="btn">Men's Fashion</Link></div>
                         <div className="me-3"><Link to="category/women's clothing" className="btn">Women's Fashion</Link></div>
                         <div className="me-3"><Link to="category/jewelery" className="btn">Jewelery</Link></div>
@@ -37,6 +41,9 @@ export function ShopperIndex() {
                         <Route path="jewelery" element = {<ShopperJewelery/>}/>
                         <Route path="category/:categoryName" element = {<ShopperCategory/>}/>
                         <Route path="details/:id" element = {<ShopperDetails/>}/>
+                        <Route path="register" element = {<ShopperRegister/>}/>
+                        <Route path="login" element = {<ShopperLogin/>}/>
+                        <Route path="invalid" element = {<ShopperInvalid/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
