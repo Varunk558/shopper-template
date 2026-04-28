@@ -6,6 +6,8 @@ import { ShopperDetails } from "../shopper-details/shopper-details";
 import { ShopperRegister } from "../shopper-register/shopper-register";
 import { ShopperLogin } from "../shopper-login/shopper-login";
 import { ShopperInvalid } from "../shopper-invalid/shopper-invalid";
+import { CrudIndex } from "../../crud-operations/components/crud-index";
+import { CrudCreate } from "../../crud-operations/components/crud-create";
 
 
 export function ShopperIndex() {
@@ -18,6 +20,7 @@ export function ShopperIndex() {
                     </div>
                     <nav className="d-flex gap-4">
                         <div className="me-3"><Link to="/home" className="btn">Home</Link></div>
+                        <div className="me-3"><Link to="/products" className="btn">Products</Link></div>
                         <div className="me-3"><Link to="/register" className="btn">Register</Link></div>
                         <div className="me-3"><Link to="category/men's clothing" className="btn">Men's Fashion</Link></div>
                         <div className="me-3"><Link to="category/women's clothing" className="btn">Women's Fashion</Link></div>
@@ -44,6 +47,8 @@ export function ShopperIndex() {
                         <Route path="register" element = {<ShopperRegister/>}/>
                         <Route path="login" element = {<ShopperLogin/>}/>
                         <Route path="invalid" element = {<ShopperInvalid/>}/>
+                        <Route path="products" element = {<CrudIndex/>}/>
+                        <Route path="NewProduct" element = {<CrudCreate/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
