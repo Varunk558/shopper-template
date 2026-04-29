@@ -8,6 +8,8 @@ import { ShopperLogin } from "../shopper-login/shopper-login";
 import { ShopperInvalid } from "../shopper-invalid/shopper-invalid";
 import { CrudIndex } from "../../crud-operations/components/crud-index";
 import { CrudCreate } from "../../crud-operations/components/crud-create";
+import { CrudDetails } from "../../crud-operations/components/crud-details";
+import { CrudEdit } from "../../crud-operations/components/crud-edit";
 
 
 export function ShopperIndex() {
@@ -49,6 +51,8 @@ export function ShopperIndex() {
                         <Route path="invalid" element = {<ShopperInvalid/>}/>
                         <Route path="products" element = {<CrudIndex/>}/>
                         <Route path="NewProduct" element = {<CrudCreate/>}/>
+                        <Route path="cruddetails/:id" element = {<CrudDetails/>}/>
+                        <Route path="crudedit/:id" element = {<CrudEdit/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
