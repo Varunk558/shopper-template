@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function CrudIndex() {
 
     const [products, setProducts] = useState([]);
-
+    const navigate = useNavigate();
     useEffect(() => {
         axios({
             method: 'get',
@@ -15,6 +15,21 @@ export function CrudIndex() {
                 setProducts(response.data);
             });
     }, []);
+
+    function HandleDelete(event) {
+        event.preventDefault();
+        var flag = window.confirm("Are you sure you want to delete this product?");
+        if (flag) {
+            axios({
+                method: 'delete',
+                url: `http://localhost:3500/deleteproduct/${event.target.value}`
+            })
+                .then(response => {
+                    navigate('/products');
+                });
+        
+    }
+    }
 
     return (
         <div className="container-fluid">
@@ -33,19 +48,19 @@ export function CrudIndex() {
                         <tr key={product.ProductId}>
                             <td>{product.Name}</td>
                             <td>
-                                <Link to= "/details" className="btn btn-info">
+                                <Link to= {`/cruddetails/${product.ProductId}`} className="btn btn-info">
                                     <span className="bi bi-eye"></span>
                                 </Link>
                             </td>
                             <td>
-                                <Link to= "/updateproduct" className="btn btn-warning">
+                                <Link to= {`/updateproduct/${product.ProductId}`} className="btn btn-warning">
                                     <span className="bi bi-pencil"></span>
                                 </Link>
                             </td>
                             <td>
-                                <Link to= "/deleteproduct" className="btn btn-danger">
+                                <button value={product.ProductId} onClick={HandleDelete} className="btn btn-danger">
                                     <span className="bi bi-trash"></span>
-                                </Link>
+                                </button>
                             </td>
                         </tr>
                     ))}
