@@ -53,7 +53,7 @@ export function CrudIndex() {
                                 </Link>
                             </td>
                             <td>
-                                <Link to= {`/updateproduct/${product.ProductId}`} className="btn btn-warning">
+                                <Link to= {`/crudedit/${product.ProductId}`} className="btn btn-warning">
                                     <span className="bi bi-pencil"></span>
                                 </Link>
                             </td>
